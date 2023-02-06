@@ -1,9 +1,8 @@
+var test=0;
 var array=[];
-var array1=[];
 async function chartdata(){
     const fechdata=await fetch('./data.json');
      data=await fechdata.json();
-     //array.push(data.join(''))
      for(let i=0;i<6;i++)
      {
         array.push(data[i]);
@@ -26,9 +25,9 @@ const socialtime=document.getElementById('socialtime');
 const sociallastperiod=document.getElementById('sociallastperiod');
 const selfcaretime=document.getElementById('selfcaretime');
 const selfcarelastperiod=document.getElementById('selfcarelastperiod');
-var test=0;
+if(test==0)
+    weekly.style.color="white";
 daily.onclick=function(){
-    
     weekly.style.color="hsl(235, 45%, 61%)";
     monthly.style.color="hsl(235, 45%, 61%)"; 
     worktime.innerHTML=array[0].timeframes.daily.current+"hrs"
@@ -43,7 +42,7 @@ daily.onclick=function(){
     exerciselastperiod.innerHTML="Yesterday-"+array[3].timeframes.daily.previous+"hrs"
     sociallastperiod.innerHTML="Yesterday-"+array[4].timeframes.daily.previous+"hrs"
     selfcarelastperiod.innerHTML="Yesterday-"+array[5].timeframes.daily.previous+"hrs"
-   test=1;
+    test=1;
 }
 weekly.onclick=function(){
     weekly.style.color="white";  
@@ -88,17 +87,11 @@ daily.onmouseover=function(){
 daily.onmouseout=function(){
     daily.style.color="hsl(235, 45%, 61%)";
     if(test==1)
-{
     daily.style.color="white";
-}
-if(test==2)
-{
+    if(test==2)
     monthly.style.color="white";
-}
-if(test==0)
-{
+    if(test==0)
     weekly.style.color="white";
-}
 }
 weekly.onmouseover=function(){
 
@@ -107,17 +100,11 @@ weekly.onmouseover=function(){
 weekly.onmouseout=function(){
     weekly.style.color="hsl(235, 45%, 61%)";
     if(test==1)
-{
     daily.style.color="white";
-}
-if(test==2)
-{
+    if(test==2)
     monthly.style.color="white";
-}
-if(test==0)
-{
+    if(test==0)
     weekly.style.color="white";
-}
 }
 monthly.onmouseover=function(){
 
@@ -126,19 +113,10 @@ monthly.onmouseover=function(){
 monthly.onmouseout=function(){
     monthly.style.color="hsl(235, 45%, 61%)";
     if(test==1)
-    {
-        daily.style.color="white";
-    }
+    daily.style.color="white";
     if(test==2)
-    {
-        monthly.style.color="white";
-    }
+    monthly.style.color="white";
     if(test==0)
-    {
-        weekly.style.color="white";
-    }
-}
-if(test==0)
-{
     weekly.style.color="white";
 }
+
